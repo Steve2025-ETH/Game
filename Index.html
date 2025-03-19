@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Speed Game</title>
+</head>
+<body>
+    <h1>Click as Fast as You Can!</h1>
+    <p>Time left: <span id="time">10</span> seconds</p>
+    <p>Score: <span id="score">0</span></p>
+    <button id="clickButton" onclick="increaseScore()">Click Me!</button>
+    
+    <script>
+        let score = 0;
+        let timeLeft = 10;
+        let timer = setInterval(() => {
+            timeLeft--;
+            document.getElementById("time").innerText = timeLeft;
+            if (timeLeft === 0) {
+                clearInterval(timer);
+                document.getElementById("clickButton").disabled = true;
+                alert("Time's up! Your final score is " + score);
+            }
+        }, 1000);
+
+        function increaseScore() {
+            score++;
+            document.getElementById("score").innerText = score;
+        }
+    </script>
+</body>
+</html>
